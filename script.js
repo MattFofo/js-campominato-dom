@@ -7,6 +7,8 @@ const btnPlay = document.getElementById("btn-play");
 const eleField = document.querySelector(".field");
 const eleDifficulty = document.getElementById("difficulty");
 const arrLevels = [100, 81, 49];
+
+
 btnPlay.addEventListener('click', setupGame);
 
 
@@ -50,13 +52,16 @@ function setupGame() {
         eleCell.style.height = `calc(100% / ${cellPerRow})`;
         eleCell.innerHTML = cellsNum;
 
+        
         //assegno una classe a seconda se ho cliccato una cella con un indice incluso nell'arrey delle bombe
         if (arrBombs.includes(cellsNum)) {
             eleCell.addEventListener('click', bombFound);
  
         }else {
             eleCell.addEventListener('click', changeCellColor);
+            
 
+            
         }
         
         eleField.append(eleCell);
@@ -67,31 +72,24 @@ function setupGame() {
 
 
 
+
+
 //funzione per aggiungere la classe 'selected' all'oggetto che richiama la funzione 
 function changeCellColor() {
    this.classList.add('selected');
-    
+   let indexCellsClicked = 0;
+   indexCellsClicked++;
+
+   console.log(indexCellsClicked)
+     
 }
 
+
+//funzione per aggiungere classe 'bomb' all'oggetto che richiama la funzione
 function bombFound() {
-    this.classList.remove('selected');
     this.classList.add('bomb');
+    alert('hai perso');
 }
 
 
 
-
-
-        //ciclo per creare le celle
-        // for (let cellsNum = 1; cellsNum <= cellsCount; cellsNum++) {
-        //     let eleCell = document.createElement("div");
-        //     eleCell.classList.add("cell");
-        //     eleCell.style.width = `calc(100% / ${cellPerRow})`;
-        //     eleCell.style.height = `calc(100% / ${cellPerRow})`;
-        //     eleCell.innerHTML = cellsNum;
-        //     eleCell.addEventListener('click', changeCellColor);
-            
-    
-        //     eleField.append(eleCell);
-            
-        // }
