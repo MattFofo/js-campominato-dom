@@ -56,13 +56,14 @@ function setupGame() {
         //assegno una classe a seconda se ho cliccato una cella con un indice incluso nell'arrey delle bombe
         if (arrBombs.includes(cellsNum)) {
             eleCell.addEventListener('click', bombFound);
+            
               
         }else {
             eleCell.addEventListener('click', changeCellColor);
             
         }
 
-        console.log(indexCellsClicked)
+        
         eleField.append(eleCell);
         
     }
@@ -73,7 +74,8 @@ function setupGame() {
 
 
 
-//funzione per aggiungere la classe 'selected' all'oggetto che richiama la funzione 
+//funzione per aggiungere la classe 'selected' all'oggetto che richiama la funzione
+//ed incrementa un contatore  
 function changeCellColor() {
    this.classList.add('selected');
    indexCellsClicked++;  
@@ -81,10 +83,16 @@ function changeCellColor() {
 
 
 //funzione per aggiungere classe 'bomb' all'oggetto che richiama la funzione
+//e mostra quante cells sono state cliccate prima di aver trovato una bomba
 function bombFound() {
     
     this.classList.add('bomb');
-    alert(indexCellsClicked);
+    let eleOutput = document.createElement("div");
+    eleOutput.classList.add('output');
+    eleOutput.innerHTML = `Hai perso :(  
+        Hai Scoperto: ${indexCellsClicked} caselle!`;
+
+    eleField.prepend(eleOutput)
 }
 
 

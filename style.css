@@ -66,6 +66,19 @@ header .container {
     background-color: black;
 }
 
+.output {
+    position: absolute;
+    z-index: 100;
+    background-color: rgba(226, 226, 226, .8) ;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
 
 footer .container {
     display: flex;
