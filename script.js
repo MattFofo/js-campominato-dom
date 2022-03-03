@@ -43,7 +43,8 @@ function setupGame() {
         
     }
     console.log(arrBombs)
-
+    
+    indexCellsClicked = 0;
     //ciclo per creare le celle
     for (let cellsNum = 1; cellsNum <= cellsCount; cellsNum++) {
         let eleCell = document.createElement("div");
@@ -52,18 +53,16 @@ function setupGame() {
         eleCell.style.height = `calc(100% / ${cellPerRow})`;
         eleCell.innerHTML = cellsNum;
 
-        
         //assegno una classe a seconda se ho cliccato una cella con un indice incluso nell'arrey delle bombe
         if (arrBombs.includes(cellsNum)) {
             eleCell.addEventListener('click', bombFound);
- 
+              
         }else {
             eleCell.addEventListener('click', changeCellColor);
             
-
-            
         }
-        
+
+        console.log(indexCellsClicked)
         eleField.append(eleCell);
         
     }
@@ -77,18 +76,15 @@ function setupGame() {
 //funzione per aggiungere la classe 'selected' all'oggetto che richiama la funzione 
 function changeCellColor() {
    this.classList.add('selected');
-   let indexCellsClicked = 0;
-   indexCellsClicked++;
-
-   console.log(indexCellsClicked)
-     
+   indexCellsClicked++;  
 }
 
 
 //funzione per aggiungere classe 'bomb' all'oggetto che richiama la funzione
 function bombFound() {
+    
     this.classList.add('bomb');
-    alert('hai perso');
+    alert(indexCellsClicked);
 }
 
 
