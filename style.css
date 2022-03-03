@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+header .container {
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#difficulty {
+    width: 100px;
+}
+
+
+#btn-play{
+    padding: 0 1em;
+}
+
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    height: 90vh;
+}
+
+
+.field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+}
+
+
+.cell {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.selected {
+    background-color: red;
+}
+
+
+
+footer .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 5vh;
+}
+
